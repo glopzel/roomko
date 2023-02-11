@@ -1,0 +1,102 @@
+---
+import logo from '../images/logo.svg'
+import burger from '../images/icon-hamburger.svg'
+---
+
+<header class="first-header">
+    <div class="logo">
+          <img src={logo} alt="">  
+    </div>
+
+    <button class='mobile-nav-toggle' aria-controls='primary-navigation' aria-expanded='false'>
+        <span class='sr-only'>Menu</span>
+    </button>
+
+    <nav> 
+        <ul data-visible='false' id='primary-navigation' class='primary-navigation'>
+            <li><a href="">home</a></li>
+            <li><a href="">shop</a></li>
+            <li><a href="">about</a></li>
+            <li><a href="">contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+
+  header {
+    z-index: 9;
+    position: absolute;
+    border: 1px solid yellow;
+  }
+
+.primary-navigation {
+  display: flex;
+  gap: 2em;
+  list-style: none;
+}
+/* 
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.first-header {
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.primary-navigation {
+  color: red;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: hsl(0, 0%, 100%, 0.5);
+  display: flex;
+  gap: 2rem;
+}
+
+@supports (background-filter: blue(1rem)) {
+  .primary-navigation {
+    background: hsl(0, 0%, 100%, 0.1);
+    backdrop-filter: blur(1rem);
+  }
+}
+
+@media (max-width: 35em) {
+  .primary-navigation {
+    display: none;
+    z-index: 1000;
+    flex-direction: column;
+    width: 70vw;
+    height: 80vh;
+  }
+  .primary-navigation li {
+    padding: 2em;
+  }
+  
+  .primary-navigation[data-visible='true'] {
+    display: block;
+    position: relative;
+    right: 2rem;
+  }
+  
+   .mobile-nav-toggle {
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    background: red; 
+    width: 1rem;
+    aspect-ratio: 1;
+    top: 2rem;
+    right: 2rem;
+  }
+} */
+
+</style>

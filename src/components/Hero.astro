@@ -1,0 +1,71 @@
+---
+import Toggle from "./Toggle.svelte";
+import lightChair from "../images/image-about-light.jpg";
+import darkChair from "../images/image-about-dark.jpg";
+---
+
+<div class="container">
+  <Toggle client:load />
+
+  <div class="small-section">
+    <div class="small-pic-1">
+      <img src={darkChair} alt="" />
+    </div>
+    <section class="content padd-m">
+      <h2>About our furniture</h2>
+      <p>
+        Our multifunctional collection blends design and function to suit your
+        individual taste. Make each room unique, or pick a cohesive theme that
+        best express your interests and what inspires you. Find the furniture
+        pieces you need, from traditional to contemporary styles or anything in
+        between. Product specialists are available to help you create your dream
+        space.
+      </p>
+    </section>
+    <div class="small-pic-2">
+      <img src={lightChair} alt="" />
+    </div>
+  </div>
+</div>
+
+<style>
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .content p,
+  .content h2 {
+    width: 80%;
+    margin-inline: auto;
+  }
+
+  .small-pic-1, .small-pic-2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (min-width: 50em) {
+    .small-section,
+  .container {
+    display: grid;
+  }
+
+    .small-section {
+      grid-template-columns: repeat(3, auto);
+    }
+
+    .container {
+        height: 100vh;
+      grid-template-rows: repeat(2, auto);
+    }
+
+    .content p,
+    .content h2 {
+        width: 80%;
+        margin-inline: auto;
+    }
+  }
+</style>

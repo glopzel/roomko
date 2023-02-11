@@ -1,0 +1,102 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+
+	*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+ul[role="list"] {
+  list-style: none;
+}
+
+	h1 {
+		/* 40 a 48 */
+		font-size: clamp(2.5rem, 2vw + 1rem, 3rem);;
+    	letter-spacing: -2px;
+	}
+
+	h1, h2  {
+		margin-bottom: 0;
+	}
+
+	h2 {
+		font-size: clamp(0.875rem, 2vw + 1rem, 1rem);
+		text-transform: uppercase;
+		letter-spacing: 5px;
+	}
+
+	p, h2 {
+		line-height: 22px;
+	}
+
+	p {
+		letter-spacing: -0.33px;
+		font-size: 1rem;
+		color: #A0A0A0;
+	}
+
+	.padd-m {
+		padding: 1em;
+	}
+</style>
