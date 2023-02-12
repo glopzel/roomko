@@ -63,7 +63,7 @@ const decrementIdx = () => {
     justify-content: center;
     position: relative;
     padding-bottom: 2em;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .hero-content h1, .hero-content p, .cta-container {
@@ -120,9 +120,9 @@ const decrementIdx = () => {
 } */
 
 @media (max-width: 50em) {
-    .hero-img {
+    /* .hero-img {
         max-width: 100vw;
-    }
+    } */
 
     .hero-content h1 {
         letter-spacing: -1.67px;
@@ -150,7 +150,7 @@ const decrementIdx = () => {
     }
 
     .btns button {
-        padding: 2em 2.5em;
+        padding: 2em 2.8em;
     }
 }
 </style>

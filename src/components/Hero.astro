@@ -30,6 +30,12 @@ import darkChair from "../images/image-about-dark.jpg";
 
 <style>
 
+  .container {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -58,7 +64,7 @@ import darkChair from "../images/image-about-dark.jpg";
     }
 
     .container {
-        height: 100vh;
+        /* height: 100vh; */
       grid-template-rows: repeat(2, auto);
     }
 

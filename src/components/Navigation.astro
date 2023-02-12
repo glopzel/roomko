@@ -1,102 +1,161 @@
 ---
 import logo from '../images/logo.svg'
 import burger from '../images/icon-hamburger.svg'
+import closeNav from '../images/icon-close.svg';
 ---
 
-<header class="first-header">
-    <div class="logo">
-          <img src={logo} alt="">  
-    </div>
-
-    <button class='mobile-nav-toggle' aria-controls='primary-navigation' aria-expanded='false'>
-        <span class='sr-only'>Menu</span>
-    </button>
-
-    <nav> 
-        <ul data-visible='false' id='primary-navigation' class='primary-navigation'>
-            <li><a href="">home</a></li>
-            <li><a href="">shop</a></li>
-            <li><a href="">about</a></li>
-            <li><a href="">contact</a></li>
-        </ul>
-    </nav>
+<header class='first-header'>
+  <div class="logo">
+    <img src={logo} alt="">  
+  </div>
+  
+  <button class='mobile-nav-toggle' aria-controls='primary-navigation' aria-expanded='false'>
+    <img id="toggle-icon" src={burger} alt="">
+    <!-- <span class='sr-only'>Menu</span> -->
+  </button>
+  
+  <nav class='first-nav'>
+    <ul data-visible='false' id='primary-navigation' class='primary-navigation'>
+      <li><a href="">home</a></li>
+      <li><a href="">shop</a></li>
+      <li><a href="">about</a></li>
+      <li><a href="">contact</a></li>
+    </ul>
+  </nav>
 </header>
+
+<script is:inline>
+  const primaryNav = document.querySelector('.primary-navigation')
+  const navToggle = document.querySelector('.mobile-nav-toggle')
+  
+  //  switch data visible to true
+  navToggle.addEventListener('click', () => {
+    const visibility = primaryNav.getAttribute('data-visible')
+    if (visibility === 'false') {
+      primaryNav.setAttribute('data-visible', true)
+      navToggle.setAttribute('aria-expanded', true)
+      // navToggle.style.backgroundImage = `url(${burger})`
+      
+    } else {
+      primaryNav.setAttribute('data-visible', false)
+      navToggle.setAttribute('aria-expanded', false)
+      // navToggle.style.backgroundImage = `url(${closeNav})`
+      // navToggle.style.backgroundImage = "url('../images/icon-close.svg')"
+    }
+  })
+  </script>
 
 <style>
 
-  header {
-    z-index: 9;
+  /* header {
+    z-index: 1;
     position: absolute;
     border: 1px solid yellow;
-  }
+  } */
 
 .primary-navigation {
   display: flex;
   gap: 2em;
   list-style: none;
 }
-/* 
+
 .logo {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
+  /* margin-left: 2rem; */
+  /* border: 1px solid red; */
+  display: inline;
 }
 
 .first-header {
-  padding: 1rem;
+  display: flex;
+  padding: 1em;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+}
+
+.first-nav {
+  display: inline-block;
+  margin-left: 2em;
+  /* border: 1px solid greenyellow; */
 }
 
 .mobile-nav-toggle {
   display: none;
+  border-style: none;
 }
 
 .primary-navigation {
-  color: red;
+  /* color: red; */
   padding: 0;
   margin: 0;
   list-style: none;
-  background: hsl(0, 0%, 100%, 0.5);
-  display: flex;
-  gap: 2rem;
+  background: transparent;
 }
 
-@supports (background-filter: blue(1rem)) {
+.primary-navigation a {
+  color: white;
+  text-decoration: none;
+}
+
+
+/* @supports (background-filter: opacity(20%)) {
   .primary-navigation {
     background: hsl(0, 0%, 100%, 0.1);
-    backdrop-filter: blur(1rem);
+    backdrop-filter: opacity(20%);
   }
-}
+} */
+
 
 @media (max-width: 35em) {
   .primary-navigation {
-    display: none;
+    position: fixed;
+    inset: 0 0 0 0%;
+    /* flex-direction: column; */
     z-index: 1000;
-    flex-direction: column;
-    width: 70vw;
-    height: 80vh;
+    /* padding: min(20vh, 10rem) 2rem; */
+    /*   % of its own width off the page   */
+    transform: translateX(100%);
+    transition: transform 250ms ease-out;
+    background: white;
+    height: 30vh;
+    color: black;
+    align-items: center;
+    padding-left: 2em;
   }
-  .primary-navigation li {
-    padding: 2em;
+
+  .primary-navigation a {
+    color: black;
   }
   
+  /*  if primary navigation has data=true  */
   .primary-navigation[data-visible='true'] {
-    display: block;
-    position: relative;
-    right: 2rem;
+    transform: translateX(0%);
+  }
+
+  /* .mobile-nav-toggle {
+      background-image: url("../images/icon-close.svg");
+    } */
+
+  .logo {
+    margin-top: 0.5rem;
   }
   
-   .mobile-nav-toggle {
+  .mobile-nav-toggle {
     display: block;
     position: absolute;
     z-index: 9999;
-    background: red; 
-    width: 1rem;
+    /* background-image: url("../images/icon-hamburger.svg"); */
+    background-color:transparent;
+    /*  put the burger img here    */
+    /*   with background-image, set background-color to transparent   */
     aspect-ratio: 1;
-    top: 2rem;
-    right: 2rem;
+    /* top: 2rem; */
+    right: 1rem;
   }
-} */
+
+  .mobile-nav-toggle img {
+    width: 100%;
+  }
+  
+}
 
 </style>
