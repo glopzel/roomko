@@ -41,7 +41,6 @@ const decrementIdx = () => {
             <div class="cta">
                 <a id="shop-nav" href="#home">SHOP NOW</a>
                 <img src={arrow} alt="">
-                <!-- <span>SHOP NOW</span> -->
             </div>
         </div>
         <div class="btns">
@@ -63,7 +62,6 @@ const decrementIdx = () => {
     justify-content: center;
     position: relative;
     padding-bottom: 2em;
-    /* border: 1px solid red; */
 }
 
 .hero-content h1, .hero-content p, .cta-container {
@@ -74,13 +72,12 @@ const decrementIdx = () => {
 .btns {
     display: flex;
     position: absolute;
-    /* right: 0; */
 }
 
 .btns button {
     background: black;
     border-style: none;
-    padding: 1em 1.5em;
+    padding: 0.8em 1.6em;
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -111,18 +108,7 @@ const decrementIdx = () => {
     cursor: pointer;
 }
 
-/* .cta img {
-    border: 1px solid blue;
-} */
-
-/* .cta img:hover, .cta span:hover {
-    filter: opacity(0.5);
-} */
-
 @media (max-width: 50em) {
-    /* .hero-img {
-        max-width: 100vw;
-    } */
 
     .hero-content h1 {
         letter-spacing: -1.67px;
@@ -131,14 +117,14 @@ const decrementIdx = () => {
     .btns {
         top: 0;
         right: 0;
+        z-index: 1;
+        transform: translateY(-2.9em);
     }
 }
 
 @media (min-width: 50em) {
     .hero {
     display: flex;
-    /* display: grid;
-    grid-template-columns: repeat(2, auto); */
 }
 
     .hero-content h1, .hero-content p, .cta-container {
@@ -150,7 +136,7 @@ const decrementIdx = () => {
     }
 
     .btns button {
-        padding: 2em 2.8em;
+        padding: 2em 2.6em;
     }
 }
 </style>
