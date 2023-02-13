@@ -10,16 +10,16 @@ import closeNav from '../images/icon-close.svg';
   </div>
   
   <button class='mobile-nav-toggle' aria-controls='primary-navigation' aria-expanded='false'>
-    <img id="toggle-icon" src={burger} alt="">
-    <!-- <span class='sr-only'>Menu</span> -->
+    <img id="burgerIcon" src={burger} alt="">
+    <img id="closeIcon" src={closeNav} alt="">
   </button>
   
   <nav class='first-nav'>
     <ul data-visible='false' id='primary-navigation' class='primary-navigation'>
-      <li><a href="">home</a></li>
-      <li><a href="">shop</a></li>
-      <li><a href="">about</a></li>
-      <li><a href="">contact</a></li>
+      <li><a href="#">home</a></li>
+      <li><a href="#">shop</a></li>
+      <li><a href="#">about</a></li>
+      <li><a href="#">contact</a></li>
     </ul>
   </nav>
 </header>
@@ -27,6 +27,8 @@ import closeNav from '../images/icon-close.svg';
 <script is:inline>
   const primaryNav = document.querySelector('.primary-navigation')
   const navToggle = document.querySelector('.mobile-nav-toggle')
+  const burgerIcon = document.querySelector('#burgerIcon')
+  const closeIcon = document.querySelector('#closeIcon')
   
   //  switch data visible to true
   navToggle.addEventListener('click', () => {
@@ -34,24 +36,19 @@ import closeNav from '../images/icon-close.svg';
     if (visibility === 'false') {
       primaryNav.setAttribute('data-visible', true)
       navToggle.setAttribute('aria-expanded', true)
-      // navToggle.style.backgroundImage = `url(${burger})`
+      closeIcon.style.display = "inline";
+      burgerIcon.style.display = "none";
       
     } else {
       primaryNav.setAttribute('data-visible', false)
       navToggle.setAttribute('aria-expanded', false)
-      // navToggle.style.backgroundImage = `url(${closeNav})`
-      // navToggle.style.backgroundImage = "url('../images/icon-close.svg')"
+      closeIcon.style.display = "none";
+      burgerIcon.style.display = "inline";
     }
   })
   </script>
 
 <style>
-
-  /* header {
-    z-index: 1;
-    position: absolute;
-    border: 1px solid yellow;
-  } */
 
 .primary-navigation {
   display: flex;
@@ -60,8 +57,6 @@ import closeNav from '../images/icon-close.svg';
 }
 
 .logo {
-  /* margin-left: 2rem; */
-  /* border: 1px solid red; */
   display: inline;
 }
 
@@ -69,13 +64,11 @@ import closeNav from '../images/icon-close.svg';
   display: flex;
   padding: 1em;
   align-items: center;
-  /* justify-content: space-between; */
 }
 
 .first-nav {
   display: inline-block;
   margin-left: 2em;
-  /* border: 1px solid greenyellow; */
 }
 
 .mobile-nav-toggle {
@@ -83,8 +76,11 @@ import closeNav from '../images/icon-close.svg';
   border-style: none;
 }
 
+#closeIcon {
+  display: none;
+}
+
 .primary-navigation {
-  /* color: red; */
   padding: 0;
   margin: 0;
   list-style: none;
@@ -94,32 +90,23 @@ import closeNav from '../images/icon-close.svg';
 .primary-navigation a {
   color: white;
   text-decoration: none;
+  font-weight: 600;
 }
-
-
-/* @supports (background-filter: opacity(20%)) {
-  .primary-navigation {
-    background: hsl(0, 0%, 100%, 0.1);
-    backdrop-filter: opacity(20%);
-  }
-} */
-
 
 @media (max-width: 35em) {
   .primary-navigation {
     position: fixed;
     inset: 0 0 0 0%;
-    /* flex-direction: column; */
     z-index: 1000;
-    /* padding: min(20vh, 10rem) 2rem; */
-    /*   % of its own width off the page   */
     transform: translateX(100%);
     transition: transform 250ms ease-out;
     background: white;
-    height: 30vh;
+    height: fit-content;
     color: black;
-    align-items: center;
-    padding-left: 2em;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 2rem;
+    padding: 1em;
   }
 
   .primary-navigation a {
@@ -131,25 +118,18 @@ import closeNav from '../images/icon-close.svg';
     transform: translateX(0%);
   }
 
-  /* .mobile-nav-toggle {
-      background-image: url("../images/icon-close.svg");
-    } */
-
   .logo {
     margin-top: 0.5rem;
+    margin-inline: auto;
   }
   
   .mobile-nav-toggle {
     display: block;
     position: absolute;
     z-index: 9999;
-    /* background-image: url("../images/icon-hamburger.svg"); */
     background-color:transparent;
-    /*  put the burger img here    */
-    /*   with background-image, set background-color to transparent   */
     aspect-ratio: 1;
-    /* top: 2rem; */
-    right: 1rem;
+    left: 1rem;
   }
 
   .mobile-nav-toggle img {
